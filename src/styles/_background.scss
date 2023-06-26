@@ -1,0 +1,64 @@
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -10;
+  background: $blue;
+
+  &__blur {
+    @extend .background;
+    z-index: -9;
+    background: linear-gradient(
+      10deg,
+      $blue 0,
+      $blue 25%,
+      $purple 50%,
+      $blue 75%,
+      $blue 100%
+    );
+    filter: blur(400px);
+  }
+
+  &__dark {
+    @extend .background;
+    z-index: -7;
+    background: radial-gradient(transparent, $dark-blue);
+  }
+
+  &__bubbles {
+    position: relative;
+    z-index: -8;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+
+    span {
+      width: 1.5rem;
+      height: 1.5rem;
+      background: #4fc3dc;
+      margin: 0 0.4rem;
+      border-radius: 50%;
+      box-shadow: 0 0 6px 10px #4fc3dc44, 0 0 5rem #4fc3dc, 0 0 10rem #4fc3dc;
+      animation: animate 15s linear infinite;
+      animation-duration: calc(300s / var(--i));
+      animation-delay: -10s;
+    }
+
+    span:nth-child(even) {
+      background: $red;
+      box-shadow: 0 0 6px 10px #ff2d7544, 0 0 5rem $red, 0 0 10rem $red;
+    }
+  }
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(100vh) scale(0);
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+  }
+}

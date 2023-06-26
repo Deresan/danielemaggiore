@@ -1,0 +1,14 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__content {
+    width: 100%;
+    max-width: $desktop;
+
+    @media screen and (max-width: $desktop) {
+      padding: 0 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+.hero {
+  height: 100vh;
+  height: 100dvh;
+
+  &__content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: $desktop;
+    font-size: 7.2rem;
+    font-weight: 480;
+    line-height: 7rem;
+
+    @media screen and (max-width: $desktop) {
+      padding-left: 1.5rem;
+    }
+
+    @media screen and (max-width: $mobile) {
+      font-size: 3.2rem;
+      line-height: 3rem;
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    width: fit-content;
+    position: relative;
+    transition: 0.1s;
+    color: white;
+  }
+
+  &__surname {
+    margin-top: 2rem;
+    font-weight: 600;
+    line-height: 9rem;
+    position: relative;
+    transition: 0.1s;
+    width: fit-content;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #FFF;
+
+    @media screen and (max-width: $mobile) {
+      line-height: 5rem;
+    }
+  }
+
+  &__subtitle {
+    width: fit-content;
+    margin-top: 3rem;
+
+    &-text {
+      color: #FF2D75;
+      font-size: 3.2rem;
+      line-height: 4rem;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 4px solid;
+      animation: typing 2s steps(var(--i)), cursor .4s step-end infinite alternate;
+
+      @media screen and (max-width: $mobile) {
+        font-size: 1.6rem;
+        line-height: 2rem;
+      }
+    }
+  }
+}
+
+@keyframes cursor {
+  50% { border-color: transparent }
+}
+
+@keyframes typing {
+  from { width: 0 }
+}

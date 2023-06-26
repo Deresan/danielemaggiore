@@ -3,4 +3,11 @@
   z-index: 1001;
   left: max(3vw, 1.5rem);
   top: max(2.5vw, 1.5rem);
+  user-select: none;
+  cursor: pointer;
+
+  img {
+    width: 4rem;
+    height: 4rem;
+  }
 }

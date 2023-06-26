@@ -1,10 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap");
+
+$desktop: 1280px;
+$tablet: 768px;
+$mobile: 480px;
+
+// $blue: rgb(0, 0, 53);
+$blue: #11062c;
+$dark-blue: rgb(0, 0, 10);
+$purple: rgb(179, 0, 179);
+$white: rgba(255, 255, 255, 0.7);
+$red: #FF2D75;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
+  font-family: 'Inter', sans-serif;
   font-size: 10px;
 }
 

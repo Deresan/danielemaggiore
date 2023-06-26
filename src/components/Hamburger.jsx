@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import FormattedMessage from './FormattedMessage';
+import en from '../assets/img/en.png';
+import it from '../assets/img/it.png';
+import { useDispatch } from 'react-redux';
+import { setEn, setIt } from '../js/store/translations';
 
 const Hamburger = () => {
+  const dispatch = useDispatch();
   const [windowW, setWindowW] = useState(window.innerWidth);
   const [open, setOpen] = useState(false);
 
@@ -26,11 +32,25 @@ const Hamburger = () => {
         <div className="hamburger__burger" />
       </div>
       <div className={`hamburger__menu${open ? ' open' : ''}`}>
-        <p>test1</p>
-        <p>test2</p>
-        <p>test3</p>
-        <p>test4</p>
-        <p>test5</p>
+        <div className="hamburger__menu-item">
+          <p>
+            <FormattedMessage id="navbar.about" />
+          </p>
+        </div>
+        <div className="hamburger__menu-item">
+          <p>
+            <FormattedMessage id="navbar.works" />
+          </p>
+        </div>
+        <div className="hamburger__menu-item">
+          <p>
+            <FormattedMessage id="navbar.contacts" />
+          </p>
+        </div>
+        <div className="hamburger__menu-lang">
+          <img src={it} alt="it" onClick={() => dispatch(setIt())} />
+          <img src={en} alt="en" onClick={() => dispatch(setEn())} />
+        </div>
       </div>
     </>
   );

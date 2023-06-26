@@ -1,0 +1,40 @@
+.navbar {
+  position: fixed;
+  z-index: 1001;
+  right: max(3vw, 1.5rem);
+  top: max(2.5vw, 1.5rem);
+  color: white;
+  font-size: 1.8rem;
+  display: flex;
+  user-select: none;
+
+  &__item {
+    cursor: pointer;
+    padding: 0 max(1.5vw, 0.75rem);
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    p {
+      border-radius: 15px;
+    }
+
+    &::after {
+      content: '';
+      width: 0%;
+      height: 0.2rem;
+      background: white;
+      align-self: flex-end;
+      transition: width 0.2s ease-in-out;
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+        align-self: flex-start;
+      }
+    }
+  }
+}
