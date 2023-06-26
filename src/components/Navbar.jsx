@@ -19,13 +19,13 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <div className="navbar__item"><p>
+      <div className="navbar__item fade-from-top" style={{'--delay': '400ms'}}><p>
         <FormattedMessage id="navbar.about" />
         </p></div>
-      <div className="navbar__item"><p>
+      <div className="navbar__item fade-from-top" style={{'--delay': '200ms'}}><p>
         <FormattedMessage id="navbar.works" />
         </p></div>
-      <div className="navbar__item"><p>
+      <div className="navbar__item fade-from-top" style={{'--delay': '0s'}}><p>
         <FormattedMessage id="navbar.contacts" />
         </p></div>
     </div>
