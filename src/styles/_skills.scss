@@ -27,7 +27,7 @@
 
   &__content-title {
     font-size: 4rem;
-    color: $red;
+    color: $light-blue;
     grid-column: 1;
 
     @media screen and (min-width: $tablet) {
@@ -46,7 +46,7 @@
       content: '';
       height: 0.3rem;
       width: 100%;
-      background: $red;
+      background: $light-blue;
     }
 
     span > i {

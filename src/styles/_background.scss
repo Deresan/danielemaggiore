@@ -38,10 +38,10 @@
     span {
       width: 1.5rem;
       height: 1.5rem;
-      background: #4fc3dc;
+      background: $light-blue;
       margin: 0 0.4rem;
       border-radius: 50%;
-      box-shadow: 0 0 6px 10px #4fc3dc44, 0 0 5rem #4fc3dc, 0 0 10rem #4fc3dc;
+      box-shadow: 0 0 6px 10px #4fc3dc44, 0 0 5rem $light-blue, 0 0 10rem $light-blue;
       animation: animate 15s linear infinite;
       animation-duration: calc(300s / var(--i));
       animation-delay: -10s;
