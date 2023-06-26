@@ -7,9 +7,9 @@
   }
 
   > * {
-    transform: translateY(100%);
+    transform: translateY(-100%);
     opacity: 0;
-    transition-duration: 400ms;
+    transition-duration: 1s;
     transition-timing-function: ease-out;
     transition-delay: var(--delay);
   }

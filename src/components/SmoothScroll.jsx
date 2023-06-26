@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Scrollbar from 'smooth-scrollbar';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
 const options = {
   damping: 0.05,
 };
 
-const SmoothScroll = ({ children }) => {
+const SmoothScroll = ({ children, scrollbar, setScrollbar }) => {
+  const dispatch = useDispatch();
   const [windowW, setWindowW] = useState(window.innerWidth);
 
   const updateWindowW = () => {
@@ -15,11 +17,13 @@ const SmoothScroll = ({ children }) => {
 
   useEffect(() => {
     if (windowW > 767) {
-      Scrollbar.init(document.getElementById('page'), options);
+      const scroll = Scrollbar.init(document.getElementById('page'), options);
+      setScrollbar(scroll);
     }
     window.addEventListener('resize', updateWindowW);
     return () => {
       if (Scrollbar) Scrollbar.destroy(document.getElementById('page'));
+      if (scrollbar) setScrollbar(null);
       window.removeEventListener('resize', updateWindowW);
     };
   }, [windowW]);
@@ -28,6 +32,7 @@ const SmoothScroll = ({ children }) => {
 
 SmoothScroll.propTypes = {
   children: PropTypes.node,
+  setScrollbar: PropTypes.func.isRequired,
 };
 
 export default SmoothScroll;

@@ -2,16 +2,24 @@ import React, { useEffect, useState } from 'react';
 import FormattedMessage from './FormattedMessage';
 import en from '../assets/img/en.png';
 import it from '../assets/img/it.png';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setEn, setIt } from '../js/store/translations';
 
 const Hamburger = () => {
   const dispatch = useDispatch();
+  const { active } = useSelector((state) => state.navigation);
   const [windowW, setWindowW] = useState(window.innerWidth);
   const [open, setOpen] = useState(false);
 
   const updateWindowW = () => {
     setWindowW(window.innerWidth);
+  };
+
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth' });
+    setOpen(false);
   };
 
   useEffect(() => {
@@ -32,21 +40,29 @@ const Hamburger = () => {
         <div className="hamburger__burger" />
       </div>
       <div className={`hamburger__menu${open ? ' open' : ''}`}>
-        <div className="hamburger__menu-item">
+
+        <div
+          className={`hamburger__menu-item${
+            active === 'about' ? ' active' : ''
+          }`}
+          onClick={() => scrollTo('about')}
+        >
           <p>
             <FormattedMessage id="navbar.about" />
           </p>
         </div>
-        <div className="hamburger__menu-item">
+
+        <div
+          className={`hamburger__menu-item${
+            active === 'skills' ? ' active' : ''
+          }`}
+          onClick={() => scrollTo('skills')}
+        >
           <p>
-            <FormattedMessage id="navbar.works" />
+            <FormattedMessage id="navbar.skills" />
           </p>
         </div>
-        <div className="hamburger__menu-item">
-          <p>
-            <FormattedMessage id="navbar.contacts" />
-          </p>
-        </div>
+        
         <div className="hamburger__menu-lang">
           <img src={it} alt="it" onClick={() => dispatch(setIt())} />
           <img src={en} alt="en" onClick={() => dispatch(setEn())} />

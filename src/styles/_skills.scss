@@ -1,0 +1,52 @@
+.skills {
+  min-height: 100vh;
+  padding: 20vh 10vw;
+
+  @media screen and (max-width: $tablet) {
+    padding: 10vh 1.5rem;
+  }
+
+  &__content {
+    height: 100%;
+    padding: 1.5rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.5rem;
+
+    @media screen and (max-width: $tablet) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__content-title {
+    font-size: 4rem;
+    color: $red;
+    grid-column: 1;
+
+    @media screen and (min-width: $tablet) {
+      grid-column: 1 / span 2;
+    }
+  }
+
+  &__content-skill {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1.8rem;
+
+    &::after {
+      content: '';
+      height: .2rem;
+      width: 100%;
+      background: $red;
+    }
+  }
+}

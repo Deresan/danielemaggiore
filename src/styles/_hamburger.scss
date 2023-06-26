@@ -86,7 +86,7 @@
         background: transparent;
       }
 
-      &.selected::after {
+      &.active::after {
         background: white;
       }
     }

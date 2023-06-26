@@ -1,9 +1,12 @@
 {
+  "about": "Hi! I'm Daniele Maggiore, I was born in 1990 and at the moment I'm working as frontend developer and UX/UI designer for Sorint.lab S.p.A.<br />I like working in a team but I have no toubles working alone on projects.<br />I am a person who puts himself on the line and puts all his effort into every situation.",
   "dev": "Frontend Developer",
   "lang.en": "English",
   "lang.it": "Italian",
+  "more": "Find out more",
   "navbar.about": "About",
   "navbar.contacts": "Contacts",
+  "navbar.skills": "Skills",
   "navbar.works": "Works",
   "pianist": "Pianist Player",
   "uiDesigner": "UI Designer"

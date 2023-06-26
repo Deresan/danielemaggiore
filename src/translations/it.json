@@ -1,9 +1,12 @@
 {
+  "about": "Ciao! Sono Daniele Maggiore, sono nato nel 1990 e al momento mi occupo di sviluppo frontend e UX/UI design per Sorint.lab S.p.A.<br />Mi piace lavorare in team ma non ho problemi a lavorare da solo ai progetti.<br />Sono una persona che si mette in gioco e mette tutto il suo impegno in ogni situazione.",
   "dev": "Sviluppatore Frontend",
   "lang.en": "Inglese",
   "lang.it": "Italiano",
+  "more": "Scopri di più",
   "navbar.about": "Chi sono",
   "navbar.contacts": "Contatti",
+  "navbar.skills": "Competenze",
   "navbar.works": "Lavori",
   "pianist": "Pianista"
 }
