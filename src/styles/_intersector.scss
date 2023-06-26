@@ -1,0 +1,16 @@
+.intersector {
+  &.in-view {
+    > * {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  > * {
+    transform: translateY(100%);
+    opacity: 0;
+    transition-duration: 400ms;
+    transition-timing-function: ease-out;
+    transition-delay: var(--delay);
+  }
+}

@@ -4,7 +4,16 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 10px;
+}
+
 body {
+  height: 100vh;
+  height: 100dvh;
+}
+
+#page {
   height: 100vh;
   height: 100dvh;
 }
