@@ -44,9 +44,13 @@
 
     &::after {
       content: '';
-      height: .2rem;
+      height: 0.3rem;
       width: 100%;
       background: $red;
+    }
+
+    span > i {
+      margin-right: 1.5rem;
     }
   }
 }

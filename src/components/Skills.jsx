@@ -12,20 +12,20 @@ const Skills = () => {
     threshold: 0.6,
   });
   const skills = [
-    'HTML',
-    'CSS',
-    'SCSS',
-    'Figma',
-    'JavaScript',
-    'TypeScript',
-    'ReactJS',
-    'VueJs',
-    'Angular',
-    'Twig',
-    'Python',
-    'Python-Flask',
-    'MySQL',
-    'Flutter',
+    { name: 'HTML', icon: 'fa-brands fa-html5' },
+    { name: 'CSS', icon: 'fa-brands fa-css3' },
+    { name: 'SCSS', icon: 'fa-brands fa-sass' },
+    { name: 'Figma', icon: 'fa-brands fa-figma' },
+    { name: 'JavaScript', icon: 'fa-brands fa-js' },
+    { name: 'TypeScript', icon: 'fa-brands fa-ts' },
+    { name: 'ReactJS', icon: 'fa-brands fa-react' },
+    { name: 'VueJs', icon: 'fa-brands fa-vuejs' },
+    { name: 'Angular', icon: 'fa-brands fa-angular' },
+    { name: 'Twig', icon: '' },
+    { name: 'Python', icon: 'fa-brands fa-python' },
+    { name: 'Python-Flask', icon: '' },
+    { name: 'MySQL', icon: '' },
+    { name: 'Flutter', icon: '' },
   ];
 
   useEffect(() => {
@@ -42,8 +42,13 @@ const Skills = () => {
         <FormattedMessage id="navbar.skills" />
       </p>
       {skills.map((skill, idx) => (
-        <Intersector key='skill' delay={`${idx*100}ms`}>
-          <p className="skills__content-skill">{skill}</p>
+        <Intersector key={skill.name} delay={`${idx * 100}ms`}>
+          <p className="skills__content-skill">
+            <span>
+              <i class={skill.icon}></i>
+              {skill.name}
+            </span>
+          </p>
         </Intersector>
       ))}
     </div>
