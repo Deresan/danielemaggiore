@@ -1,0 +1,22 @@
+.footer {
+  background: $dark-blue;
+  color: white;
+  font-size: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8rem;
+  padding: 8rem 0;
+
+  &__name {
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+
+    img {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+}

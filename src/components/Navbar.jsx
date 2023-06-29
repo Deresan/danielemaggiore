@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import FormattedMessage from './FormattedMessage';
 import PropTypes from 'prop-types';
 
-const Navbar = ({ scrollbar }) => {
+const Navbar = ({ scrollbar, items }) => {
   const { active } = useSelector((state) => state.navigation);
   const [windowW, setWindowW] = useState(window.innerWidth);
 
@@ -29,36 +29,27 @@ const Navbar = ({ scrollbar }) => {
 
   return (
     <div className="navbar">
-
-      <div
-        className={`navbar__item fade-from-top${
-          active === 'about' ? ' active' : ''
-        }`}
-        style={{ '--delay': '400ms' }}
-        onClick={() => scrollTo('about')}
-      >
-        <p>
-          <FormattedMessage id="navbar.about" />
-        </p>
-      </div>
-
-      <div
-        className={`navbar__item fade-from-top${
-          active === 'skills' ? ' active' : ''
-        }`}
-        style={{ '--delay': '200ms' }}
-        onClick={() => scrollTo('skills')}
-      >
-        <p>
-          <FormattedMessage id="navbar.skills" />
-        </p>
-      </div>
+      {items.map((item, idx) => (
+        <div
+          key={item}
+          className={`navbar__item fade-from-top${
+            active === item ? ' active' : ''
+          }`}
+          style={{ '--delay': `${idx + 1}00ms` }}
+          onClick={() => scrollTo(item)}
+        >
+          <p>
+            <FormattedMessage id={`navbar.${item}`} />
+          </p>
+        </div>
+      ))}
     </div>
   );
 };
 
 Navbar.propTypes = {
   scrollbar: PropTypes.object,
+  items: PropTypes.array,
 };
 
 export default Navbar;

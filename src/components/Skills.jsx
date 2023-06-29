@@ -45,7 +45,7 @@ const Skills = () => {
         <Intersector key={skill.name} delay={`${idx * 100}ms`}>
           <p className="skills__content-skill">
             <span>
-              <i class={skill.icon}></i>
+              <i className={skill.icon}></i>
               {skill.name}
             </span>
           </p>

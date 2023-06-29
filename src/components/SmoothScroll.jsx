@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Scrollbar from 'smooth-scrollbar';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
 
 const options = {
   damping: 0.05,
 };
 
 const SmoothScroll = ({ children, scrollbar, setScrollbar }) => {
-  const dispatch = useDispatch();
   const [windowW, setWindowW] = useState(window.innerWidth);
 
   const updateWindowW = () => {

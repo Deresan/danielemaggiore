@@ -25,17 +25,17 @@ const About = () => {
 
   return (
     <div ref={ref} className="about__content" id="about">
-      <Intersector delay="200ms">
+      <Intersector delay="100ms">
         <p className="about__content-title">
           <FormattedMessage id="navbar.about" />
         </p>
       </Intersector>
       <div className="about__content-text">
-        <Intersector delay="400ms">
-          <img src={aboutMe} alt="photo"></img>
+        <Intersector delay="200ms" threshold={0.3}>
+          <img src={aboutMe} />
         </Intersector>
         <div>
-          <Intersector delay="600ms">
+          <Intersector delay="300ms" threshold={0.3}>
             <p
               dangerouslySetInnerHTML={{
                 __html: formatMessage('about', lang),
@@ -44,10 +44,10 @@ const About = () => {
           </Intersector>
         </div>
       </div>
-      <Intersector delay="800ms">
+      <Intersector delay="400ms">
         <div className="about__content-button">
           <button type="button">
-            <FormattedMessage id='more' />
+            <FormattedMessage id="more" />
           </button>
         </div>
       </Intersector>

@@ -4,8 +4,9 @@ import en from '../assets/img/en.png';
 import it from '../assets/img/it.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { setEn, setIt } from '../js/store/translations';
+import PropTypes from 'prop-types';
 
-const Hamburger = () => {
+const Hamburger = ({ items }) => {
   const dispatch = useDispatch();
   const { active } = useSelector((state) => state.navigation);
   const [windowW, setWindowW] = useState(window.innerWidth);
@@ -40,29 +41,20 @@ const Hamburger = () => {
         <div className="hamburger__burger" />
       </div>
       <div className={`hamburger__menu${open ? ' open' : ''}`}>
+        {items.map((item) => (
+          <div
+            key={item}
+            className={`hamburger__menu-item${
+              active === item ? ' active' : ''
+            }`}
+            onClick={() => scrollTo(item)}
+          >
+            <p>
+              <FormattedMessage id={`navbar.${item}`} />
+            </p>
+          </div>
+        ))}
 
-        <div
-          className={`hamburger__menu-item${
-            active === 'about' ? ' active' : ''
-          }`}
-          onClick={() => scrollTo('about')}
-        >
-          <p>
-            <FormattedMessage id="navbar.about" />
-          </p>
-        </div>
-
-        <div
-          className={`hamburger__menu-item${
-            active === 'skills' ? ' active' : ''
-          }`}
-          onClick={() => scrollTo('skills')}
-        >
-          <p>
-            <FormattedMessage id="navbar.skills" />
-          </p>
-        </div>
-        
         <div className="hamburger__menu-lang">
           <img src={it} alt="it" onClick={() => dispatch(setIt())} />
           <img src={en} alt="en" onClick={() => dispatch(setEn())} />
@@ -70,6 +62,10 @@ const Hamburger = () => {
       </div>
     </>
   );
+};
+
+Hamburger.propTypes = {
+  items: PropTypes.array,
 };
 
 export default Hamburger;
