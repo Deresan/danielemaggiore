@@ -10,10 +10,11 @@ import LanguageSelector from '../components/LanguageSelector';
 import Skills from '../components/Skills';
 import Contacts from '../components/Contacts';
 import Footer from '../components/Footer';
+import Projects from '../components/Projects';
 
 const Home = () => {
   const [scrollbar, setScrollbar] = useState(null);
-  const items = ['about', 'skills', 'contacts'];
+  const items = ['about', 'skills', 'projects', 'contacts'];
   return (
     <>
       <Logo scrollbar={scrollbar} />
@@ -26,6 +27,7 @@ const Home = () => {
           <Hero />
           <About />
           <Skills />
+          <Projects />
           <Contacts />
           <Footer />
         </>

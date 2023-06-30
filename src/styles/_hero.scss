@@ -39,10 +39,17 @@
     width: fit-content;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #FFF;
+    -webkit-text-stroke-color: #fff;
 
     @media screen and (max-width: $mobile) {
       line-height: 5rem;
+    }
+  }
+
+  @media screen and (max-width: $tablet) {
+    &__title {
+      position: relative;
+      top: -25vh;
     }
   }
 
@@ -51,14 +58,15 @@
     margin-top: 3rem;
 
     &-text {
-      color: #FF2D75;
+      color: #ff2d75;
       font-size: 3.2rem;
       line-height: 4rem;
       width: 100%;
       white-space: nowrap;
       overflow: hidden;
       border-right: 4px solid;
-      animation: typing 2s steps(var(--i)), cursor .4s step-end infinite alternate;
+      animation: typing 2s steps(var(--i)),
+        cursor 0.4s step-end infinite alternate;
 
       @media screen and (max-width: $mobile) {
         font-size: 1.6rem;
@@ -66,12 +74,44 @@
       }
     }
   }
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    top: 40vh;
+    right: 0;
+    display: flex;
+    justify-content: center;
+
+    @media screen and (min-width: $tablet) {
+      right: -15vw;
+    }
+
+    img {
+      border-radius: 50%;
+      box-shadow: 0 0 6px 10px #4fc3dc44, 0 0 5rem $light-blue,
+        0 0 10rem $light-blue;
+      animation: changeBorder 6s ease-in-out infinite;
+      height: 50vh;
+    }
+  }
 }
 
 @keyframes cursor {
-  50% { border-color: transparent }
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes changeBorder {
+  50% {
+    box-shadow: 0 0 6px 10px #ff2d7544, 0 0 5rem $red, 0 0 10rem $red;
+  }
 }
 
 @keyframes typing {
-  from { width: 0 }
+  from {
+    width: 0;
+  }
 }

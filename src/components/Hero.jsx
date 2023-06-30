@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { formatMessage } from '../js/utils';
 import FormattedMessage from './FormattedMessage';
 import Container from './Container';
+import me from '../assets/img/me.png';
 
 const Hero = () => {
   const lang = useSelector((state) => state.lang.lang);
@@ -65,6 +66,9 @@ const Hero = () => {
                 </p>
               )}
             </div>
+          </div>
+          <div className="hero__image">
+            <img src={me} alt="" />
           </div>
         </div>
       </div>
