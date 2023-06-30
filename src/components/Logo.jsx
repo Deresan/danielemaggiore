@@ -12,13 +12,16 @@ const Logo = ({ scrollbar }) => {
       return;
     }
     if (scrollbar) {
-      scrollbar.scrollTo(0,0, 500);
+      scrollbar.scrollTo(0, 0, 500);
       return;
     }
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    const page = document.getElementById('page');
+    if (page) {
+      page.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (
