@@ -3,7 +3,7 @@
   "contact.email": "Your email",
   "contact.message": "Message",
   "contact.name": "Your name",
-  "contact.recaptcha": "Protected by reCAPTCHA and the Google privacy policy and terms of service",
+  "contact.recaptcha": "This site is protected by reCAPTCHA and the Google <a href='https://policies.google.com/privacy' target='_blank'>Privacy Policy</a> and <a href='https://policies.google.com/terms' target='_blank'>Terms of Service</a> apply.",
   "contact.send": "Send Message",
   "copyright": "© 2023 copyright all right reserved",
   "dev": "Frontend Developer",

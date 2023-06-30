@@ -36,7 +36,7 @@
 
       input,
       textarea {
-        width: 30vw;
+        width: 100%;
         padding: 1.5rem;
         border-radius: 15px;
         color: white;
@@ -70,6 +70,10 @@
 
     &__recaptcha {
       margin-top: 3.6rem;
+
+      a {
+        color: $red;
+      }
     }
 
     &__submit-btn {

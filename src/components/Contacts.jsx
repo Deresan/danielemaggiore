@@ -4,12 +4,13 @@ import { useInView } from 'react-intersection-observer';
 import { setNav } from '../js/store/navigation';
 import FormattedMessage from './FormattedMessage';
 import Intersector from './Intersector';
-import { emailPattern } from '../js/utils';
+import { emailPattern, formatMessage } from '../js/utils';
 import emailjs from '@emailjs/browser';
 import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const Contacts = () => {
   const active = useSelector((state) => state.navigation.active);
+  const lang = useSelector((state) => state.lang.lang);
   const [token, setToken] = useState();
   const [name, setName] = useState({
     value: '',
@@ -64,7 +65,8 @@ const Contacts = () => {
     setErrors(e);
   };
 
-  const sendMessage = () => {
+  const sendMessage = (e) => {
+    e.preventDefault();
     if (!isValid || !token) return;
     const templateParams = {
       name: name.value,
@@ -72,7 +74,6 @@ const Contacts = () => {
       message: message.value,
     };
 
-    console.log(process.env.REACT_APP_PUBLIC_KEY);
     emailjs
       .send(
         process.env.REACT_APP_SERVICE_ID,
@@ -94,7 +95,7 @@ const Contacts = () => {
 
   const recaptcha = (t) => {
     if (!token) setToken(t);
-  }
+  };
 
   useEffect(() => {
     validate();
@@ -118,51 +119,78 @@ const Contacts = () => {
         <FormattedMessage id="messageMe" />
       </p>
 
-      <div className="form__input">
-        <p className="form__label">
-          <FormattedMessage id="contact.name" />
-        </p>
-        <input type="text" value={name.value} onChange={updateName} />
-        {errors.name && (
-          <p className="form__error">
-            <FormattedMessage id={errors.name} />
-          </p>
-        )}
-      </div>
+      <form onSubmit={sendMessage}>
+        <Intersector delay="100ms">
+          <div className="form__input">
+            <p className="form__label">
+              <FormattedMessage id="contact.name" />
+            </p>
+            <input
+              type="text"
+              value={name.value}
+              onChange={updateName}
+              name="name"
+            />
+            {errors.name && (
+              <p className="form__error">
+                <FormattedMessage id={errors.name} />
+              </p>
+            )}
+          </div>
+        </Intersector>
 
-      <div className="form__input">
-        <p className="form__label">
-          <FormattedMessage id="contact.email" />
-        </p>
-        <input type="text" value={email.value} onChange={updateEmail} />
-        {errors.email && (
-          <p className="form__error">
-            <FormattedMessage id={errors.email} />
-          </p>
-        )}
-      </div>
+        <Intersector delay="200ms">
+          <div className="form__input">
+            <p className="form__label">
+              <FormattedMessage id="contact.email" />
+            </p>
+            <input
+              type="text"
+              value={email.value}
+              onChange={updateEmail}
+              name="email"
+            />
+            {errors.email && (
+              <p className="form__error">
+                <FormattedMessage id={errors.email} />
+              </p>
+            )}
+          </div>
+        </Intersector>
 
-      <div className="form__input">
-        <p className="form__label">
-          <FormattedMessage id="contact.message" />
-        </p>
-        <textarea value={message.value} onChange={updateMessage} />
-        {errors.message && (
-          <p className="form__error">
-            <FormattedMessage id={errors.message} />
-          </p>
-        )}
-      </div>
+        <Intersector delay="300ms" threshold={0.3}>
+          <div className="form__input">
+            <p className="form__label">
+              <FormattedMessage id="contact.message" />
+            </p>
+            <textarea
+              value={message.value}
+              onChange={updateMessage}
+              name="message"
+            />
+            {errors.message && (
+              <p className="form__error">
+                <FormattedMessage id={errors.message} />
+              </p>
+            )}
+          </div>
+        </Intersector>
 
-      <p className="form__recaptcha">
-        <FormattedMessage id="contact.recaptcha" />
-      </p>
+        <Intersector delay="400ms">
+          <p
+            className="form__recaptcha"
+            dangerouslySetInnerHTML={{
+              __html: formatMessage('contact.recaptcha', lang),
+            }}
+          />
 
-      <div className="form__submit-btn">
-        <button type="button" disabled={!isValid} onClick={sendMessage}>
-          <FormattedMessage id="contact.send" />
-        </button>
-      </div>
+          <div className="form__submit-btn">
+            <button type="submit" disabled={!isValid} onClick={sendMessage}>
+              <FormattedMessage id="contact.send" />
+            </button>
+          </div>
+        </Intersector>
+      </form>
     </div>
   );
 };
