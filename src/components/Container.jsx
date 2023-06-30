@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Container = ({ children, className }) => {
+const Container = ({ children, className, fRef, id }) => {
   return (
-    <div className={`container${className ? ` ${className}` : ''}`}>
+    <div className={`container${className ? ` ${className}` : ''}`} ref={fRef} id={id}>
       <div className="container__content">{children}</div>
     </div>
   );
@@ -11,6 +11,8 @@ const Container = ({ children, className }) => {
 
 Container.propTypes = {
   className: PropTypes.string,
+  fRef: PropTypes.func,
+  id: PropTypes.string,
 };
 
 export default Container;

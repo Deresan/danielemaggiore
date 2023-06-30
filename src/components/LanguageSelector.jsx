@@ -39,23 +39,19 @@ const LanguageSelector = () => {
   if (windowW <= 767) return null;
 
   return (
-    <div className="language-selector">
-      <div className="language-selector__content">
-        <div
-          className={`language-selector__flag${open ? ' open' : ''}`}
-          onClick={toggleOpen}
-          onMouseLeave={() => setOpen(false)}
-        >
-          {open && (
-            <img
-              src={lang === 'it' ? en : it}
-              alt={lang}
-              onClick={lang === 'it' ? clickEn : clickIt}
-            />
-          )}
-          <img src={lang === 'it' ? it : en} alt={lang} />
-        </div>
-      </div>
+    <div
+      className={`language-selector${open ? ' open' : ''}`}
+      onClick={toggleOpen}
+      onMouseLeave={() => setOpen(false)}
+    >
+      {open && (
+        <img
+          src={lang === 'it' ? en : it}
+          alt={lang}
+          onClick={lang === 'it' ? clickEn : clickIt}
+        />
+      )}
+      <img src={lang === 'it' ? it : en} alt={lang} />
     </div>
   );
 };

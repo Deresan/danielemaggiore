@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Hero from '../components/Hero';
-import Container from '../components/Container';
 import SmoothScroll from '../components/SmoothScroll';
 import About from '../components/About';
 import Logo from '../components/Logo';
@@ -24,18 +23,10 @@ const Home = () => {
       <LanguageSelector />
       <SmoothScroll scrollbar={scrollbar} setScrollbar={setScrollbar}>
         <>
-          <Container>
-            <Hero />
-          </Container>
-          <Container className="about">
-            <About />
-          </Container>
-          <Container className="skills">
-            <Skills />
-          </Container>
-          <Container className="contacts">
-            <Contacts />
-          </Container>
+          <Hero />
+          <About />
+          <Skills />
+          <Contacts />
           <Footer />
         </>
       </SmoothScroll>

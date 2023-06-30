@@ -7,11 +7,14 @@ import Intersector from './Intersector';
 import { emailPattern, formatMessage } from '../js/utils';
 import emailjs from '@emailjs/browser';
 import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
+import Container from './Container';
+import { toast } from 'react-toastify';
 
 const Contacts = () => {
   const active = useSelector((state) => state.navigation.active);
   const lang = useSelector((state) => state.lang.lang);
   const [token, setToken] = useState();
+  const [loading, setLoading] = useState(false);
   const [name, setName] = useState({
     value: '',
     touched: false,
@@ -68,6 +71,7 @@ const Contacts = () => {
   const sendMessage = (e) => {
     e.preventDefault();
     if (!isValid || !token) return;
+    setLoading(true);
     const templateParams = {
       name: name.value,
       email: email.value,
@@ -86,9 +90,21 @@ const Contacts = () => {
           setName({ value: '', touched: false });
           setEmail({ value: '', touched: false });
           setMessage({ value: '', touched: false });
+          toast.success(formatMessage('contact.sent', lang), {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'dark',
+          });
+          setLoading(false);
         },
         (error) => {
           console.error('FAILED:', error);
+          setLoading(false);
         }
       );
   };
@@ -110,88 +126,94 @@ const Contacts = () => {
   }, [inView, active, dispatch]);
 
   return (
-    <div ref={ref} className="contacts__content" id="contacts">
-      <GoogleReCaptcha onVerify={recaptcha} />
-      <p className="contacts__content-title">
-        <FormattedMessage id="navbar.contacts" />
-      </p>
-      <p className="contacts__content-subtitle">
-        <FormattedMessage id="messageMe" />
-      </p>
+    <Container fRef={ref} className="contacts" id="contacts">
+      <div className="contacts__content">
+        <GoogleReCaptcha onVerify={recaptcha} />
+        <p className="contacts__content-title">
+          <FormattedMessage id="navbar.contacts" />
+        </p>
+        <p className="contacts__content-subtitle">
+          <FormattedMessage id="messageMe" />
+        </p>
 
-      <form onSubmit={sendMessage}>
-        <Intersector delay="100ms">
-          <div className="form__input">
-            <p className="form__label">
-              <FormattedMessage id="contact.name" />
-            </p>
-            <input
-              type="text"
-              value={name.value}
-              onChange={updateName}
-              name="name"
-            />
-            {errors.name && (
-              <p className="form__error">
-                <FormattedMessage id={errors.name} />
+        <form onSubmit={sendMessage}>
+          <Intersector delay="100ms">
+            <div className="form__input">
+              <p className="form__label">
+                <FormattedMessage id="contact.name" />
               </p>
-            )}
-          </div>
-        </Intersector>
+              <input
+                type="text"
+                value={name.value}
+                onChange={updateName}
+                name="name"
+              />
+              {errors.name && (
+                <p className="form__error">
+                  <FormattedMessage id={errors.name} />
+                </p>
+              )}
+            </div>
+          </Intersector>
 
-        <Intersector delay="200ms">
-          <div className="form__input">
-            <p className="form__label">
-              <FormattedMessage id="contact.email" />
-            </p>
-            <input
-              type="text"
-              value={email.value}
-              onChange={updateEmail}
-              name="email"
-            />
-            {errors.email && (
-              <p className="form__error">
-                <FormattedMessage id={errors.email} />
+          <Intersector delay="200ms">
+            <div className="form__input">
+              <p className="form__label">
+                <FormattedMessage id="contact.email" />
               </p>
-            )}
-          </div>
-        </Intersector>
+              <input
+                type="text"
+                value={email.value}
+                onChange={updateEmail}
+                name="email"
+              />
+              {errors.email && (
+                <p className="form__error">
+                  <FormattedMessage id={errors.email} />
+                </p>
+              )}
+            </div>
+          </Intersector>
 
-        <Intersector delay="300ms" threshold={0.3}>
-          <div className="form__input">
-            <p className="form__label">
-              <FormattedMessage id="contact.message" />
-            </p>
-            <textarea
-              value={message.value}
-              onChange={updateMessage}
-              name="message"
-            />
-            {errors.message && (
-              <p className="form__error">
-                <FormattedMessage id={errors.message} />
+          <Intersector delay="300ms" threshold={0.3}>
+            <div className="form__input">
+              <p className="form__label">
+                <FormattedMessage id="contact.message" />
               </p>
-            )}
-          </div>
-        </Intersector>
+              <textarea
+                value={message.value}
+                onChange={updateMessage}
+                name="message"
+              />
+              {errors.message && (
+                <p className="form__error">
+                  <FormattedMessage id={errors.message} />
+                </p>
+              )}
+            </div>
+          </Intersector>
 
-        <Intersector delay="400ms">
-          <p
-            className="form__recaptcha"
-            dangerouslySetInnerHTML={{
-              __html: formatMessage('contact.recaptcha', lang),
-            }}
-          />
+          <Intersector delay="400ms">
+            <p
+              className="form__recaptcha"
+              dangerouslySetInnerHTML={{
+                __html: formatMessage('contact.recaptcha', lang),
+              }}
+            />
 
-          <div className="form__submit-btn">
-            <button type="submit" disabled={!isValid} onClick={sendMessage}>
-              <FormattedMessage id="contact.send" />
-            </button>
-          </div>
-        </Intersector>
-      </form>
-    </div>
+            <div className="form__submit-btn">
+              <button
+                type="submit"
+                disabled={!isValid || loading}
+                onClick={sendMessage}
+              >
+                <FormattedMessage id="contact.send" />
+              </button>
+            </div>
+          </Intersector>
+        </form>
+      </div>
+    </Container>
   );
 };
 

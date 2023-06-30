@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { routesCodes } from './js/routeCodes';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,5 +20,6 @@ root.render(
         </Routes>
       </Router>
     </GoogleReCaptchaProvider>
+    <ToastContainer />
   </Provider>
 );

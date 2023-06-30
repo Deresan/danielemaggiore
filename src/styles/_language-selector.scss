@@ -1,37 +1,22 @@
 .language-selector {
   position: fixed;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 2.4rem;
+  align-items: center;
+  right: 5rem;
   bottom: 3rem;
-  width: 100vw;
+  padding: 2rem;
+  border-radius: 15px;
   z-index: 10;
   user-select: none;
 
-  &__content {
-    width: 100%;
-    // max-width: $desktop;
-    display: flex;
-    justify-content: flex-end;
+  &.open {
+    background: $white;
   }
 
-  &__flag {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 2.4rem;
-    align-items: center;
-    right: 5rem;
-    padding: 2rem;
-    border-radius: 15px;
-    z-index: 10;
-
-    &.open {
-      background: $white;
-    }
-    
-    @media screen and (max-width: $tablet) {
-      right: 1.5rem;
-    }
+  @media screen and (max-width: $tablet) {
+    right: 1.5rem;
   }
 
   img {

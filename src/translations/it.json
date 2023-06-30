@@ -5,6 +5,7 @@
   "contact.name": "Il tuo nome",
   "contact.recaptcha": "Questo sito è protetto da reCAPTCHA e dalla <a href='https://policies.google.com/privacy' target='_blank'>Privacy Policy</a> e <a href='https://policies.google.com/terms' target='_blank'>Termini di Servizio</a> di Google.",
   "contact.send": "Invia Messaggio",
+  "contact.sent": "Messaggio Inviato",
   "copyright": "© copyright tutti i diritti riservati",
   "dev": "Sviluppatore Frontend",
   "error.email": "Email non valida",

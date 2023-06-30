@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { setNav } from '../js/store/navigation';
 import FormattedMessage from './FormattedMessage';
 import Intersector from './Intersector';
+import Container from './Container';
 
 const Skills = () => {
   const active = useSelector((state) => state.navigation.active);
@@ -37,21 +38,23 @@ const Skills = () => {
   }, [inView, active, dispatch]);
 
   return (
-    <div ref={ref} className="skills__content" id="skills">
-      <p className="skills__content-title">
-        <FormattedMessage id="navbar.skills" />
-      </p>
-      {skills.map((skill, idx) => (
-        <Intersector key={skill.name} delay={`${idx * 100}ms`}>
-          <p className="skills__content-skill">
-            <span>
-              <i className={skill.icon}></i>
-              {skill.name}
-            </span>
-          </p>
-        </Intersector>
-      ))}
-    </div>
+    <Container fRef={ref} className="skills" id="skills">
+      <div className="skills__content">
+        <p className="skills__content-title">
+          <FormattedMessage id="navbar.skills" />
+        </p>
+        {skills.map((skill, idx) => (
+          <Intersector key={skill.name} delay={`${idx * 100}ms`}>
+            <p className="skills__content-skill">
+              <span>
+                <i className={skill.icon}></i>
+                {skill.name}
+              </span>
+            </p>
+          </Intersector>
+        ))}
+      </div>
+    </Container>
   );
 };
 
