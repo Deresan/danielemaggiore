@@ -9,10 +9,13 @@ import elite from '../assets/img/elite.png';
 import hackersgen from '../assets/img/hackersgen.png';
 import scame from '../assets/img/scame.png';
 import catalina from '../assets/img/catalina.png';
+import { routesCodes } from '../js/routeCodes';
+import { useNavigate } from 'react-router-dom';
 
 const Projects = () => {
   const active = useSelector((state) => state.navigation.active);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { ref, inView } = useInView({
     threshold: 0.6,
   });
@@ -52,7 +55,10 @@ const Projects = () => {
         </div>
         <Intersector delay="300ms">
           <div className="projects__content-button">
-            <button type="button">
+            <button
+              type="button"
+              onClick={() => navigate(routesCodes.PROJECTS)}
+            >
               <FormattedMessage id="more" />
             </button>
           </div>

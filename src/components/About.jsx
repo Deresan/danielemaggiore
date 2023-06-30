@@ -7,11 +7,14 @@ import { useInView } from 'react-intersection-observer';
 import { setNav } from '../js/store/navigation';
 import aboutMe from '../assets/img/aboutMe.jpg';
 import Container from './Container';
+import { routesCodes } from '../js/routeCodes';
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
   const lang = useSelector((state) => state.lang.lang);
   const active = useSelector((state) => state.navigation.active);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { ref, inView } = useInView({
     threshold: 0.6,
   });
@@ -48,7 +51,7 @@ const About = () => {
         </div>
         <Intersector delay="400ms">
           <div className="about__content-button">
-            <button type="button">
+            <button type="button" onClick={() => navigate(routesCodes.ABOUT)}>
               <FormattedMessage id="more" />
             </button>
           </div>
