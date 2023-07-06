@@ -66,4 +66,30 @@
       }
     }
   }
+
+  &__title {
+    color: $red;
+    text-align: center;
+    font-size: 3rem;
+    margin: 8vh 0;
+  }
+
+  &__global-tabs {
+    position: fixed;
+    top: 40%;
+    left: 0;
+    color: $dark-blue;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 1;
+
+    p {
+      background: $red;
+      font-size: 3rem;
+      padding: 1.5rem;
+      cursor: pointer;
+      border-radius: 0 15px 15px 0;
+    }
+  }
 }

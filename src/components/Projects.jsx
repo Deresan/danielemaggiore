@@ -5,10 +5,10 @@ import Intersector from './Intersector';
 import { useInView } from 'react-intersection-observer';
 import { setNav } from '../js/store/navigation';
 import Container from './Container';
-import elite from '../assets/img/elite.png';
-import hackersgen from '../assets/img/hackersgen.png';
-import scame from '../assets/img/scame.png';
-import catalina from '../assets/img/catalina.png';
+import elite from '../assets/img/elite.webp';
+import hackersgen from '../assets/img/hackersgen.webp';
+import scame from '../assets/img/scame.webp';
+import catalina from '../assets/img/catalina.webp';
 import { routesCodes } from '../js/routeCodes';
 import { useNavigate } from 'react-router-dom';
 

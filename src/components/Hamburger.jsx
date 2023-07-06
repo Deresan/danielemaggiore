@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import FormattedMessage from './FormattedMessage';
-import en from '../assets/img/en.png';
-import it from '../assets/img/it.png';
+import en from '../assets/img/en.webp';
+import it from '../assets/img/it.webp';
 import { useDispatch, useSelector } from 'react-redux';
 import { setEn, setIt } from '../js/store/translations';
 import PropTypes from 'prop-types';

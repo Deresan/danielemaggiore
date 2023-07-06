@@ -5,7 +5,7 @@ import FormattedMessage from './FormattedMessage';
 import Intersector from './Intersector';
 import { useInView } from 'react-intersection-observer';
 import { setNav } from '../js/store/navigation';
-import aboutMe from '../assets/img/aboutMe.jpg';
+import aboutMe from '../assets/img/aboutMe.webp';
 import Container from './Container';
 import { routesCodes } from '../js/routeCodes';
 import { useNavigate } from 'react-router-dom';

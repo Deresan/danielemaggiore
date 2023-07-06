@@ -1,0 +1,142 @@
+.timeline {
+  width: 100%;
+  display: flex;
+  color: $light-blue;
+  font-size: 1.6rem;
+
+  &__date {
+    width: 5rem;
+    font-size: 2rem;
+    margin-right: 2.4rem;
+    transform: translateY(30%);
+
+    @media screen and (max-width: $tablet) {
+      width: auto;
+      writing-mode: vertical-rl;
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__dot-container {
+    margin-right: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(30%);
+
+    @media screen and (max-width: $tablet) {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__dot {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background: $light-blue;
+  }
+
+  &__card {
+    flex: 5;
+    margin: 2rem 0;
+    display: flex;
+    backdrop-filter: blur(6px);
+    border: 2px solid $light-blue;
+    border-radius: 15px;
+    padding: 1.5rem;
+    gap: 1.5rem;
+
+    @media screen and (max-width: $tablet) {
+      flex-direction: column;
+    }
+  }
+
+  &__image-wrapper {
+    flex: 2;
+
+    img {
+      width: 100%;
+      transition: scale 300ms ease-in-out;
+
+      &:hover {
+        scale: 1.2;
+      }
+    }
+  }
+
+  &__image {
+    overflow: hidden;
+    border-radius: 5px;
+  }
+
+  &__text {
+    flex: 3;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+    &-header {
+      display: flex;
+      color: $light-blue;
+      gap: 1rem;
+
+      p {
+        padding: 0.75rem 1.5rem;
+        cursor: pointer;
+        border-radius: 15px 15px 0 0;
+        background: rgba(128, 128, 128, 0.1);
+        color: rgba(128, 128, 128, 0.8);
+        user-select: none;
+        text-transform: uppercase;
+      }
+
+      p.selected {
+        background: rgba(128, 128, 128, 0.4);
+        color: $light-blue;
+      }
+    }
+
+    &-body {
+      padding: 1rem;
+      height: 100%;
+      background: rgba(128, 128, 128, 0.4);
+      border-radius: 0 15px 15px;
+    }
+  }
+}
+
+.intersector:not(:last-child) {
+  .timeline__dot-container::after {
+    content: '';
+    width: 3px;
+    background: $light-blue;
+    height: 100%;
+    display: block;
+  }
+}
+
+.intersector:last-child {
+  .timeline__dot-container::before {
+    content: '';
+    width: 3px;
+    background: $light-blue;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: -100%;
+  }
+}
+
+.intersector:not(:first-of-type) {
+  .timeline__dot-container::after {
+    position: absolute;
+    top: -30%;
+  }
+}
+
+.intersector:last-child {
+  .timeline {
+    margin-bottom: 8vh;
+    overflow: hidden;
+  }
+}

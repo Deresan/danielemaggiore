@@ -88,12 +88,27 @@
       right: -15vw;
     }
 
-    img {
+    &-img {
+      backdrop-filter: blur(1px);
       border-radius: 50%;
       box-shadow: 0 0 6px 10px #4fc3dc44, 0 0 5rem $light-blue,
         0 0 10rem $light-blue;
       animation: changeBorder 6s ease-in-out infinite;
+      background-position: center;
+      background-size: cover;
+      overflow: hidden;
+
+      &.loaded img {
+        opacity: 1;
+      }
+    }
+
+    img {
       height: 50vh;
+      opacity: 0;
+      transition: opacity 200ms ease-in-out;
+      object-position: center;
+      object-fit: cover;
     }
   }
 }

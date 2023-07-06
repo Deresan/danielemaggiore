@@ -3,11 +3,13 @@ import { useSelector } from 'react-redux';
 import { formatMessage } from '../js/utils';
 import FormattedMessage from './FormattedMessage';
 import Container from './Container';
-import me from '../assets/img/me.png';
+import me from '../assets/img/me.webp';
+import meSmall from '../assets/img/me-small.webp';
 
 const Hero = () => {
   const lang = useSelector((state) => state.lang.lang);
   const [rotate, setRotate] = useState(0);
+  const [imgLoaded, setImageLoaded] = useState(false);
   const [draw, setDraw] = useState(false);
   const subtitles = ['dev', 'uiDesigner', 'pianist'];
   const rotateRef = useRef();
@@ -68,7 +70,17 @@ const Hero = () => {
             </div>
           </div>
           <div className="hero__image">
-            <img src={me} alt="" />
+            <div
+              style={{ backgroundImage: `url(${meSmall})` }}
+              className={`hero__image-img${imgLoaded ? ' loaded' : ''}`}
+            >
+              <img
+                src={me}
+                alt=""
+                loading="lazy"
+                onLoad={() => setImageLoaded(true)}
+              />
+            </div>
           </div>
         </div>
       </div>
