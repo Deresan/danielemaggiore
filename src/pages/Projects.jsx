@@ -56,17 +56,20 @@ const Projects = () => {
           <h1 className="projects__title">
             <FormattedMessage id="navbar.projects" />
           </h1>
-          {projectList.map(({ id, date, tab, img, description, skills }) => (
-            <Timeline
-              key={id}
-              date={date}
-              tab={tab}
-              img={img}
-              description={description}
-              skills={skills}
-              changeTab={() => changeTab(id)}
-            />
-          ))}
+          {projectList.map(
+            ({ id, date, tab, img, descriptionIt, descriptionEn, skills }) => (
+              <Timeline
+                key={id}
+                date={date}
+                tab={tab}
+                img={img}
+                descriptionIt={descriptionIt}
+                descriptionEn={descriptionEn}
+                skills={skills}
+                changeTab={() => changeTab(id)}
+              />
+            )
+          )}
         </Container>
         <Footer />
       </SmoothScroll>

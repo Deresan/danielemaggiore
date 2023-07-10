@@ -5,6 +5,7 @@ import { setNav } from '../js/store/navigation';
 import FormattedMessage from './FormattedMessage';
 import Intersector from './Intersector';
 import Container from './Container';
+import { skills } from '../js/entities';
 
 const Skills = () => {
   const active = useSelector((state) => state.navigation.active);
@@ -12,22 +13,6 @@ const Skills = () => {
   const { ref, inView } = useInView({
     threshold: 0.6,
   });
-  const skills = [
-    { name: 'HTML', icon: 'fa-brands fa-html5' },
-    { name: 'CSS', icon: 'fa-brands fa-css3' },
-    { name: 'SCSS', icon: 'fa-brands fa-sass' },
-    { name: 'Figma', icon: 'fa-brands fa-figma' },
-    { name: 'JavaScript', icon: 'fa-brands fa-js' },
-    { name: 'TypeScript', icon: 'fa-brands fa-ts' },
-    { name: 'ReactJS', icon: 'fa-brands fa-react' },
-    { name: 'VueJs', icon: 'fa-brands fa-vuejs' },
-    { name: 'Angular', icon: 'fa-brands fa-angular' },
-    { name: 'Twig', icon: '' },
-    { name: 'Python', icon: 'fa-brands fa-python' },
-    { name: 'Python-Flask', icon: '' },
-    { name: 'MySQL', icon: '' },
-    { name: 'Flutter', icon: '' },
-  ];
 
   useEffect(() => {
     if (inView && active !== 'skills') {
