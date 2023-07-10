@@ -1,19 +1,7 @@
-import elite from '../assets/img/elite.webp';
-import scame from '../assets/img/scame.webp';
-import hackersgen from '../assets/img/hackersgen.webp';
-import catalina from '../assets/img/catalina.webp';
-import snype from '../assets/img/snype.webp';
-import sorint_lab from '../assets/img/sorint_lab.webp';
-import foppa from '../assets/img/foppa.webp';
-import coifer from '../assets/img/coifer.webp';
-import lombardi from '../assets/img/lombardi.webp';
-import maccolini from '../assets/img/maccolini.webp';
-import touring from '../assets/img/touring.webp';
-import computer_var from '../assets/img/computer_var.webp';
-import valmarecchia from '../assets/img/valmarecchia.webp';
-import giuliana from '../assets/img/giuliana.webp';
-import bordonchio from '../assets/img/bordonchio.webp';
-import photo from '../assets/img/photo.webp';
+import {
+  elite, scame, hackersgen, catalina, snype, sorint_lab, foppa, coifer, lombardi,
+  maccolini, touring, computer_var, valmarecchia, giuliana, bordonchio, photo,
+} from '../assets/img';
 
 export const skills = [
   { name: 'HTML', icon: 'fa-brands fa-html5' },
@@ -96,11 +84,11 @@ export const projects = [
     descriptionEn:
       'In the months of February and March 2021 I worked as a frontend developer for Sorint.lab on the Hackersgen project, a project for courses and lessons for schools done in VueJs',
     skills: (
-      <div className="skills-list">
+      <ul className="skills-list">
         {skill('VueJs')}
         {skill('JavaScript')}
         {skill('CSS')}
-      </div>
+      </ul>
     ),
   },
   {
@@ -112,7 +100,7 @@ export const projects = [
       "Durante il mese di gennaio 2021 ho lavorato per Sorint.lab nel progetto Snype, un progetto fatto in Flutter. Snype è un'applicazione per smartphone che permette di effettuare automaticamente il check-in (da qui il nome) alle sale riunioni di Sorint.lab",
     descriptionEn:
       'During the month of January 2021 I worked for Sorint.lab in the Snype project, a project done in Flutter. Snype is a smartphone application that allows you to automatically check-in (hence the name) to Sorint.lab meeting rooms',
-    skills: <div className="skills-list">{skill('Flutter')}</div>,
+    skills: <ul className="skills-list">{skill('Flutter')}</ul>,
   },
   {
     id: 5,
@@ -124,10 +112,10 @@ export const projects = [
     descriptionEn:
       'From March 2020 to December 2020 I worked on behalf of Sorint.lab for a marketing company called Catalina. Here I developed several scripts for report generation or data management in databases and other tasks related to internal sites and portals',
     skills: (
-      <div className="skills-list">
+      <ul className="skills-list">
         {skill('C#')}
         {skill('MySQL')}
-      </div>
+      </ul>
     ),
   },
   {
@@ -140,11 +128,11 @@ export const projects = [
     descriptionEn:
       'Throughout 2019, until February 2020, I was in charge of Automation: a role that had been created ad hoc for me to automate many ticket or report creation processes in the Sorint.lab Service Desk',
     skills: (
-      <div className="skills-list">
+      <ul className="skills-list">
         {skill('Python')}
         {skill('Python-Flask')}
         {skill('MySQL')}
-      </div>
+      </ul>
     ),
   },
   {
@@ -178,7 +166,7 @@ export const projects = [
       'Da ottobre 2016 a luglio 2017 ho lavorato presso Coifer Srl Soc. Unipersonale, azienda che si occupa di coibentazioni industriali, svolgendo il ruolo di impiegato tecnico. Durante questo impiego ho imparato tutte le basi della coibentazione, a gestire la documentazione per la sicurezza dei lavoratori in cantiere e a disegnare in AutoCad',
     descriptionEn:
       'From October 2016 to July 2017 I worked at Coifer Srl Soc. Unipersonale, a company that deals with industrial insulation, performing the role of technical employee. During this job I learned all the basics of insulation, to manage the documentation for the safety of workers on site and to draw in AutoCad',
-    skills: <div className="skills-list">{skill('AutoCad')}</div>,
+    skills: <ul className="skills-list">{skill('AutoCad')}</ul>,
   },
   {
     id: 10,

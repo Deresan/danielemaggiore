@@ -124,10 +124,22 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+
+    @media screen and (max-width: $mobile) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .skills-item {
     margin-left: 3rem;
+
+    @media screen and (max-width: $mobile) {
+      margin-left: 1rem;
+
+      &::marker {
+        margin-right: 0;
+      }
+    }
   }
 }
 
