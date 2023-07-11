@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FormattedMessage from './FormattedMessage';
-import Intersector from './Intersector';
+import FormattedMessage from '../global/FormattedMessage';
+import Intersector from '../global/Intersector';
 import { useSelector } from 'react-redux';
 
 const Timeline = ({

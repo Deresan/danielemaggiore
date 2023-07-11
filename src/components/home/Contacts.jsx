@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useInView } from 'react-intersection-observer';
-import { setNav } from '../js/store/navigation';
-import FormattedMessage from './FormattedMessage';
-import Intersector from './Intersector';
-import { emailPattern, formatMessage } from '../js/utils';
+import { setNav } from '../../js/store/navigation';
+import FormattedMessage from '../global/FormattedMessage';
+import Intersector from '../global/Intersector';
+import { emailPattern, formatMessage } from '../../js/utils';
 import emailjs from '@emailjs/browser';
 import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
-import Container from './Container';
+import Container from '../global/Container';
 import { toast } from 'react-toastify';
 
 const Contacts = () => {

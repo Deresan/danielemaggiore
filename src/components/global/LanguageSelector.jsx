@@ -1,9 +1,8 @@
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setEn, setIt } from '../js/store/translations';
-import en from '../assets/img/en.webp';
-import it from '../assets/img/it.webp';
+import { setEn, setIt } from '../../js/store/translations';
+import { en, it } from '../../assets/img';
 
 const LanguageSelector = () => {
   const dispatch = useDispatch();

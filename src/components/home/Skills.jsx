@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useInView } from 'react-intersection-observer';
-import { setNav } from '../js/store/navigation';
-import FormattedMessage from './FormattedMessage';
-import Intersector from './Intersector';
-import Container from './Container';
-import { skills } from '../js/entities';
+import { setNav } from '../../js/store/navigation';
+import FormattedMessage from '../global/FormattedMessage';
+import Intersector from '../global/Intersector';
+import Container from '../global/Container';
+import { skills } from '../../js/entities';
 
 const Skills = () => {
   const active = useSelector((state) => state.navigation.active);

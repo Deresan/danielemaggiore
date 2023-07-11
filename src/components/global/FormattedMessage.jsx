@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import en from '../translations/en.json';
-import it from '../translations/it.json';
+import en from '../../translations/en.json';
+import it from '../../translations/it.json';
 import { useSelector } from 'react-redux';
 
 const FormattedMessage = ({ id }) => {

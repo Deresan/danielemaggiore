@@ -1,6 +1,6 @@
 import {
   elite, scame, hackersgen, catalina, snype, sorint_lab, foppa, coifer, lombardi,
-  maccolini, touring, computer_var, valmarecchia, giuliana, bordonchio, photo,
+  maccolini, touring, computer_var, valmarecchia, giuliana, giuliana1, bordonchio, photo,
 } from '../assets/img';
 
 export const skills = [
@@ -249,7 +249,7 @@ export const projects = [
     id: 17,
     date: '2006',
     tab: 0,
-    img: giuliana,
+    img: giuliana1,
     descriptionIt:
       'Dopo aver superato le prove di nuoto, voga e particolari test sanitari ho ottenuto il Libretto di navigazione di prima categoria presso la Capitaneria di porto di Rimini e mi sono imbarcato a Cesenatico nelle estati del 2006, 2007, 2008 presso il Motopeschereccio “Giuliana”, lavorando come pescatore, nella cernita del pesce e nella guardia al timone',
     descriptionEn:

@@ -1,16 +1,13 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import FormattedMessage from './FormattedMessage';
-import Intersector from './Intersector';
+import FormattedMessage from '../global/FormattedMessage';
+import Intersector from '../global/Intersector';
 import { useInView } from 'react-intersection-observer';
-import { setNav } from '../js/store/navigation';
-import Container from './Container';
-import elite from '../assets/img/elite.webp';
-import hackersgen from '../assets/img/hackersgen.webp';
-import scame from '../assets/img/scame.webp';
-import catalina from '../assets/img/catalina.webp';
-import { routesCodes } from '../js/routeCodes';
+import { setNav } from '../../js/store/navigation';
+import Container from '../global/Container';
+import { routesCodes } from '../../js/routeCodes';
 import { useNavigate } from 'react-router-dom';
+import { catalina, elite, hackersgen, scame } from '../../assets/img';
 
 const Projects = () => {
   const active = useSelector((state) => state.navigation.active);

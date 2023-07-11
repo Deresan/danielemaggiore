@@ -1,78 +1,16 @@
-import React, { useState } from 'react';
-import Logo from '../components/Logo';
-import Background from '../components/Background';
-import Container from '../components/Container';
-import Timeline from '../components/Timeline';
-import SmoothScroll from '../components/SmoothScroll';
-import FormattedMessage from '../components/FormattedMessage';
-import LanguageSelector from '../components/LanguageSelector';
-import Footer from '../components/Footer';
-import { projects } from '../js/entities';
+import React from 'react';
+import Logo from '../components/global/Logo';
+import Background from '../components/global/Background';
+import LanguageSelector from '../components/global/LanguageSelector';
+import TimelineContainer from '../components/projects/TimelineContainer';
 
 const Projects = () => {
-  const [scrollbar, setScrollbar] = useState(null);
-
-  const [projectList, setProjectList] = useState(projects);
-
-  const changeTab = (id) => {
-    setProjectList(
-      projectList.map((project) => {
-        if (id === project.id) {
-          const p = project;
-          p.tab = p.tab === 0 ? 1 : 0;
-          return p;
-        } else return project;
-      })
-    );
-  };
-
-  const setAllTab = (n) => {
-    setProjectList(
-      projectList.map((project) => {
-        if (n !== project.tab) {
-          const p = project;
-          p.tab = n;
-          return p;
-        } else return project;
-      })
-    );
-  };
-
   return (
     <>
       <Logo />
       <Background bubbles />
       <LanguageSelector />
-      <div className="projects__global-tabs">
-        <p onClick={() => setAllTab(0)}>
-          <i className="fa-solid fa-envelope-open-text" />
-        </p>
-        <p onClick={() => setAllTab(1)}>
-          <i className="fa-solid fa-square-plus" />
-        </p>
-      </div>
-      <SmoothScroll scrollbar={scrollbar} setScrollbar={setScrollbar}>
-        <Container>
-          <h1 className="projects__title">
-            <FormattedMessage id="navbar.projects" />
-          </h1>
-          {projectList.map(
-            ({ id, date, tab, img, descriptionIt, descriptionEn, skills }) => (
-              <Timeline
-                key={id}
-                date={date}
-                tab={tab}
-                img={img}
-                descriptionIt={descriptionIt}
-                descriptionEn={descriptionEn}
-                skills={skills}
-                changeTab={() => changeTab(id)}
-              />
-            )
-          )}
-        </Container>
-        <Footer />
-      </SmoothScroll>
+      <TimelineContainer />
     </>
   );
 };

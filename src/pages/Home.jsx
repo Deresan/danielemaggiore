@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import Hero from '../components/Hero';
-import SmoothScroll from '../components/SmoothScroll';
-import About from '../components/About';
-import Logo from '../components/Logo';
-import Hamburger from '../components/Hamburger';
-import Background from '../components/Background';
-import Navbar from '../components/Navbar';
-import LanguageSelector from '../components/LanguageSelector';
-import Skills from '../components/Skills';
-import Contacts from '../components/Contacts';
-import Footer from '../components/Footer';
-import Projects from '../components/Projects';
+import Hero from '../components/home/Hero';
+import SmoothScroll from '../components/global/SmoothScroll';
+import About from '../components/home/About';
+import Logo from '../components/global/Logo';
+import Hamburger from '../components/global/Hamburger';
+import Background from '../components/global/Background';
+import Navbar from '../components/global/Navbar';
+import LanguageSelector from '../components/global/LanguageSelector';
+import Skills from '../components/home/Skills';
+import Contacts from '../components/home/Contacts';
+import Footer from '../components/global/Footer';
+import Projects from '../components/home/Projects';
 
 const Home = () => {
   const [scrollbar, setScrollbar] = useState(null);

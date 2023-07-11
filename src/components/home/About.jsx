@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { formatMessage } from '../js/utils';
-import FormattedMessage from './FormattedMessage';
-import Intersector from './Intersector';
+import { formatMessage } from '../../js/utils';
+import FormattedMessage from '../global/FormattedMessage';
+import Intersector from '../global/Intersector';
 import { useInView } from 'react-intersection-observer';
-import { setNav } from '../js/store/navigation';
-import aboutMe from '../assets/img/aboutMe.webp';
-import Container from './Container';
-import { routesCodes } from '../js/routeCodes';
+import { setNav } from '../../js/store/navigation';
+import Container from '../global/Container';
+import { routesCodes } from '../../js/routeCodes';
 import { useNavigate } from 'react-router-dom';
+import { aboutMe } from '../../assets/img';
 
 const About = () => {
   const lang = useSelector((state) => state.lang.lang);

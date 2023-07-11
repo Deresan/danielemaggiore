@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { formatMessage } from '../js/utils';
-import FormattedMessage from './FormattedMessage';
-import Container from './Container';
-import me from '../assets/img/me.webp';
-import meSmall from '../assets/img/me-small.webp';
+import { formatMessage } from '../../js/utils';
+import FormattedMessage from '../global/FormattedMessage';
+import Container from '../global/Container';
+import { me, meSmall } from '../../assets/img';
 
 const Hero = () => {
   const lang = useSelector((state) => state.lang.lang);

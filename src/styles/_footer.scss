@@ -6,17 +6,29 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.8rem;
+  gap: 3rem;
   padding: 8rem 0;
 
   &__name {
     display: flex;
     align-items: center;
     gap: 2.4rem;
+    white-space: nowrap;
 
     img {
       width: 4rem;
       height: 4rem;
+    }
+  }
+
+  .socials {
+    font-size: 4rem;
+    display: flex;
+    gap: 3rem;
+
+    a {
+      text-decoration: none;
+      color: white;
     }
   }
 }

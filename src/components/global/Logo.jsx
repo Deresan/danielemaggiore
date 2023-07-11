@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { routesCodes } from '../js/routeCodes';
+import { routesCodes } from '../../js/routeCodes';
 import PropTypes from 'prop-types';
 
 const Logo = ({ scrollbar }) => {
