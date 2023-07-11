@@ -47,7 +47,7 @@ const TimelineContainer = () => {
       <SmoothScroll scrollbar={scrollbar} setScrollbar={setScrollbar}>
         <Container>
           <h1 className="projects__title">
-            <FormattedMessage id="navbar.projects" />
+            <FormattedMessage id="projects" />
           </h1>
           {projectList.map(
             ({ id, date, tab, img, descriptionIt, descriptionEn, skills }) => (
